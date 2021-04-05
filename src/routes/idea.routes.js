@@ -1,8 +1,9 @@
 const { Router } = require("express");
+const { ParseMiddleware } = require("../middlewares");
 
 module.exports = function ({ IdeaController }) {
   const router = Router();
-  router.get("/", IdeaController.getAll);
+  router.get("/", ParseMiddleware, IdeaController.getAll);
   router.get("/:ideaId", IdeaController.get);
   router.get("/:ideaId/all", IdeaController.getUserIdeas);
   router.patch("/:ideaId", IdeaController.update);

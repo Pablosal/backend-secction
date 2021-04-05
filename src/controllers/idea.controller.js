@@ -9,7 +9,7 @@ class UserController {
     return res.send(idea);
   }
   async getAll(req, res) {
-    const ideas = await _ideaService.egtAll();
+    const ideas = await _ideaService.getAll(pageSize,pageNum);
     return res.send(ideas);
   }
   async update(req, res) {
