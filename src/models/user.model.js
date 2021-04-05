@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { compareSync, hashSync, genSaltSync } = require("bcrypt");
-UserSchema.methods.toJson = function () {
-  let user = this.toObject();
-  delete user.password;
-  return user;
-};
+
 const UserSchema = new Schema({
   name: { type: String, required: true },
   username: { type: String, required: true },
   password: { type: String, required: true },
 });
-
+UserSchema.methods.toJson = function () {
+  let user = this.toObject();
+  delete user.password;
+  return user;
+};
 UserSchema.methods.comparePasswords = function (password) {
   return compareSync(password, this.password);
 };

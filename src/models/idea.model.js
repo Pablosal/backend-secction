@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const IdeaSchema = new Schema({
   idea: String,
-  description: string,
+  description: String,
   upvotes: [Boolean],
   downvotes: [Boolean],
   author: {
